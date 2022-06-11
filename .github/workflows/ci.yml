@@ -22,5 +22,5 @@ jobs:
         working-directory: './'
 
       - name: 'Run Unit Tests with PHPUnit'
-        run: vendor/bin/phpunit --verbose --stderr
+        run: vendor/bin/phpunit tests --verbose --stderr
         working-directory: './'
