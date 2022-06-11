@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: ./deploy/php-fpm
+      dockerfile: Dockerfile
+    container_name: otus-arch2022-app
+    image: otus-arch2022/php-fpm
+    env_file:
+      - ./.env
+    volumes:
+      - .:/app
+    networks:
+      - otus-arch2022-network
+
+networks:
+  otus-arch2022-network:
+    driver: bridge

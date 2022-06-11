@@ -1,0 +1,26 @@
+name: CI
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+
+      - name: 'Setup PHP'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          tools: 'phpunit'
+
+      - name: 'Install PHP dependencies with Composer'
+        run: composer install --prefer-dist --no-progress --no-suggest --optimize-autoloader
+        working-directory: './'
+
+      - name: 'Run Unit Tests with PHPUnit'
+        run: vendor/bin/phpunit --verbose --stderr
+        working-directory: './'
