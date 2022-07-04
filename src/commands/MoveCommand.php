@@ -8,6 +8,7 @@
 
 namespace app\commands;
 
+use app\contracts\CommandInterface;
 use app\contracts\MovableInterface;
 use app\factories\VectorFactory;
 
@@ -17,7 +18,7 @@ use app\factories\VectorFactory;
  * Class MoveCommand
  * @package app\commands
  */
-class MoveCommand
+class MoveCommand implements CommandInterface
 {
     /**
      * @param MovableInterface $movable
@@ -29,9 +30,7 @@ class MoveCommand
     }
 
     /**
-     * Выполнение
-     *
-     * @return void
+     * @inheritDoc
      */
     public function execute(): void
     {

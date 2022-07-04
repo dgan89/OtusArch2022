@@ -8,6 +8,7 @@
 
 namespace app\commands;
 
+use app\contracts\CommandInterface;
 use app\contracts\RotatableInterface;
 
 /**
@@ -16,7 +17,7 @@ use app\contracts\RotatableInterface;
  * Class RotateCommand
  * @package app\commands
  */
-class RotateCommand
+class RotateCommand implements CommandInterface
 {
     /**
      * @param RotatableInterface $rotatable
@@ -28,9 +29,7 @@ class RotateCommand
     }
 
     /**
-     * Выполнение
-     *
-     * @return void
+     * @inheritDoc
      */
     public function execute(): void
     {
